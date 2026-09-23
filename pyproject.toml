@@ -1,0 +1,25 @@
+[project]
+name = "pebbleocr"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "paddleocr[doc-parser]==3.7.0",
+    "paddlepaddle==3.2.0",
+    "pillow>=12.1.0",
+]
+
+[project.scripts]
+pebbleocr = "pebbleocr:main"
+
+[[tool.uv.index]]
+name = "paddle-cpu"
+url = "https://www.paddlepaddle.org.cn/packages/stable/cpu/"
+explicit = true
+
+[tool.uv.sources]
+paddlepaddle = { index = "paddle-cpu" }
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
